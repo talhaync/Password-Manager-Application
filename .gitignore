@@ -1,0 +1,15 @@
+# Backend
+pma-backend/target/
+*.class
+
+# Frontend
+pma-frontend/node_modules/
+pma-frontend/dist/
+
+# IDE
+.idea/
+.vscode/
+*.iml
+
+# Env
+.env

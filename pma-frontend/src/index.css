@@ -1,0 +1,107 @@
+@import "tailwindcss";
+
+@theme {
+  /* Neutrals — dark, blue-shifted */
+  --color-base: #0d1017;
+  --color-surface: #12161f;
+  --color-raised: #171c26;
+  --color-hover: #1c2230;
+  --color-line: #242b3a;
+  --color-muted: #8b94a8;
+  --color-fg: #e3e7ef;
+
+  /* Accent */
+  --color-accent: #6e56cf;
+  --color-accent-hover: #7d67d8;
+  --color-accent-text: #a893f5;
+
+  /* Semantic */
+  --color-success: #3fb950;
+  --color-warning: #d29922;
+  --color-danger: #f85149;
+
+  /* Password character tinting */
+  --color-pw-letter: #e3e7ef;
+  --color-pw-digit: #6cb6ff;
+  --color-pw-symbol: #f0883e;
+
+  /* Type scale */
+  --text-2xs: 0.75rem;
+  --text-2xs--line-height: 1rem;
+  --text-xs: 0.8125rem;
+  --text-xs--line-height: 1.125rem;
+  --text-sm: 0.875rem;
+  --text-sm--line-height: 1.25rem;
+  --text-base: 1rem;
+  --text-base--line-height: 1.375rem;
+  --text-lg: 1.125rem;
+  --text-lg--line-height: 1.5rem;
+
+  /* Radius */
+  --radius-sm: 6px;
+  --radius-md: 8px;
+
+  /* Shadows — floating layers only */
+  --shadow-dropdown: 0 4px 12px rgb(0 0 0 / 0.32);
+  --shadow-modal: 0 8px 28px rgb(0 0 0 / 0.4);
+
+  /* Fonts */
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: var(--color-base);
+    color: var(--color-fg);
+    font-family: var(--font-sans);
+    font-size: var(--text-sm);
+  }
+
+  /* Keyboard-only focus ring — never removed, never shown on mouse click */
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+
+  ::selection {
+    background-color: rgb(110 86 207 / 0.35);
+  }
+}
+
+@layer utilities {
+  /* Narrow, unobtrusive scrollbars for the three-panel layout */
+  .scroll-thin {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-line) transparent;
+  }
+
+  .scroll-thin::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  .scroll-thin::-webkit-scrollbar-thumb {
+    background-color: var(--color-line);
+    border-radius: 999px;
+  }
+
+  .scroll-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
